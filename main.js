@@ -1,4 +1,6 @@
-var video = document.getElementById("video");
+var video = document.createElement("video");
+video.setAttribute('autoplay', true);
+video.setAttribute('playsinline', true)
 var canvasElement = document.getElementById("canvas");
 var canvas = canvasElement.getContext("2d");
 var button = document.getElementById("scan");
@@ -20,4 +22,7 @@ canvasElement.height = video.videoHeight;
 canvasElement.width = video.videoWidth;
 canvas.drawImage(video, 0, 0, canvasElement.width, canvasElement.height);
 
-button.onclick = stream();
+button.onclick() = function cliccato(){
+	alert("avvio la cam");
+	stream();
+}
