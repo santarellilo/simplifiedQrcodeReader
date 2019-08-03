@@ -18,7 +18,7 @@
 			<label>Inquadrare il QRcode</label>
 			<span id="output"></span>
 		</div>
-		<div class="col-8" >
+		<div class="col-8" style="background-color: black;">
 			<canvas id="canvas">
 			</canvas>
 		</div>
@@ -58,7 +58,6 @@ function detect(){
 	var imageData = canvas.getImageData = (0, 0, canvasElement.width, canvasElement.height);
 	window.alert("cerco..");
 	code = jsQR(imageData.data, imageData.width, imageData.height, {inversionAttempts: "dontInvert",});
-	output.innerText = code.data;
 	window.alert("eppure..");
 
 };
@@ -68,9 +67,10 @@ document.onload = stream();
 button.addEventListener("click", function fun(){
 	detect();
 });
-//if (code) {
-//	window.alert('fatto!');
-//}
+if (code) {
+	output.innerText = code.data;
+	window.alert('fatto!');
+}
 	
 </script>
 </body>
