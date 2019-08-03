@@ -18,7 +18,7 @@ function stream(){
   			console.log( 'error: ', err );
 		})
 };
-document.body.appendChild(video);
+canvas.appendChild(video);
 canvasElement.height = video.videoHeight;
 canvasElement.width = video.videoWidth;
 canvas.drawImage(video, 0, 0, canvasElement.width, canvasElement.height);
