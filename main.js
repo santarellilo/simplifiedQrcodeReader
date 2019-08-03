@@ -22,7 +22,7 @@ canvasElement.height = video.videoHeight;
 canvasElement.width = video.videoWidth;
 canvas.drawImage(video, 0, 0, canvasElement.width, canvasElement.height);
 
-button.onclick() = function cliccato(){
+button.addEventListener("click", function(){
 	alert("avvio la cam");
 	stream();
-}
+});
