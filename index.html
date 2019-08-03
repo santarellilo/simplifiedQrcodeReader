@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title>QRcode Reader</title>
+	<link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
+	<style type="text/css">
+		body{
+			margin:0 auto;
+		}
+	</style>
+</head>
+<body>
+<div class="container-fluid mt-3">
+	<div class="row">
+		<div class="col-4">
+			<label>Inquadrare il QRcode</label>
+
+		</div>
+		<div class="col-8" >
+			<canvas id="canvas" style="background-color:black; height: 100%; width: 100%">
+				<video playsinline autoplay id="video" ></video>
+			</canvas>
+		</div>
+	</div>
+	<div style="margin-top: 20px;">
+		<div class="col text-center"><button type="button" class="btn btn-success" id="scan">Scannerizza</button></div>
+	</div> <!-- end row -->
+</div> <!-- end container -->
+<script type="text/javascript" src="main.js"></script>
+</body>
+</html>
