@@ -1,4 +1,4 @@
-import "https://raw.githubusercontent.com/cozmo/jsQR/master/dist/jsQR.js";
+import "./jsQR.js";
 var video = document.createElement("video");
 var output = document.getElementById("output");
 video.setAttribute('autoplay', true);
