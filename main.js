@@ -1,7 +1,7 @@
 var video = document.getElementById("video");
 var canvasElement = document.getElementById("canvas");
 var canvas = canvasElement.getContext("2d");
-var button = getElementById("scan");
+var button = document.getElementById("scan");
 
 const constraints = {audio:false, video:{facingMode:"environment"}}
 
@@ -13,7 +13,7 @@ function stream(){
   			video.play();
 		})
 		.catch(function(err) {
-  			return error;
+  			console.log( 'error: ', err );
 });
 
 canvasElement.height = video.videoHeight;
