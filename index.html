@@ -13,19 +13,18 @@
 </head>
 <body>
 <div class="container-fluid mt-3">
+	<div class="row"><label id="output" class="text-center">Inquadrare il QRcode</label></div><!-- end row -->
 	<div class="row">
-		<div class="col-6">
-			<label id="output">Inquadrare il QRcode</label>
-		</div>
-		<div class="col-6">
-			<div class="col text-center"><button type="button" class="btn btn-success" id="scan">Scannerizza</button></div>
-		</div>
-	</div>
-	<div style="margin-top: 20px;">
+		<div class="text-center"><button type="button" class="btn btn-success" id="scan">Scannerizza</button></div>
+	</div><!-- end row -->
+	<div>
 		<canvas id="canvas" hidden></canvas>
-	</div> <!-- end row -->
+	</div> 
 </div> <!-- end container -->
 <script type="text/javascript">
+document.addEventListener('touchmove', function (event) {
+  if (event.scale !== 1) { event.preventDefault(); }
+}, false);
 var video = document.createElement("video");
 var output = document.getElementById("output");
 video.setAttribute('autoplay', true);
