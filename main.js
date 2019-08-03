@@ -12,3 +12,7 @@ navigator.mediaDevices.getUserMedia(constraints)
 .catch(function(err) {
   return error;
 });
+
+canvasElement.height = video.videoHeight;
+canvasElement.width = video.videoWidth;
+canvas.drawImage(video, 0, 0, canvasElement.width, canvasElement.height);
