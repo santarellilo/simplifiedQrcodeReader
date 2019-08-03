@@ -4,6 +4,7 @@
 	<title>QRcode Reader</title>
 	<link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
 	<script type="text/javascript" src="./jsQR.js"></script>
+	<meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
 	<style type="text/css">
 		body{
 			margin:0 auto;
@@ -55,6 +56,7 @@ function detect(){
 	canvasElement.width = video.videoWidth;
 	canvas.drawImage(video, 0, 0, canvasElement.width, canvasElement.height);
 	var imageData = canvas.getImageData = (0, 0, canvasElement.width, canvasElement.height);
+	window.alert("cerco..");
 	code = jsQR(imageData.data, imageData.width, imageData.height, {inversionAttempts: "dontInvert",});
 	output.innerText = code.data;
 
@@ -64,7 +66,7 @@ function detect(){
 document.onload = stream();
 button.addEventListener("click", function fun(){
 	detect();
-	alert('cerco..');
+	window.alert('fatto!');
 });
 	
 </script>
