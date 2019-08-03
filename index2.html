@@ -59,6 +59,7 @@ function detect(){
 	window.alert("cerco..");
 	code = jsQR(imageData.data, imageData.width, imageData.height, {inversionAttempts: "dontInvert",});
 	output.innerText = code.data;
+	window.alert("eppure..");
 
 };
 
@@ -66,8 +67,10 @@ function detect(){
 document.onload = stream();
 button.addEventListener("click", function fun(){
 	detect();
-	window.alert('fatto!');
 });
+//if (code) {
+//	window.alert('fatto!');
+//}
 	
 </script>
 </body>
