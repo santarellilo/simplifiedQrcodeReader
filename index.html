@@ -3,9 +3,13 @@
 <head>
 	<title>QRcode Reader</title>
 	<link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
+	<script type="text/javascript" src="https://raw.githubusercontent.com/cozmo/jsQR/master/dist/jsQR.js"></script>
 	<style type="text/css">
 		body{
 			margin:0 auto;
+		}
+		#video {
+
 		}
 	</style>
 </head>
@@ -13,8 +17,7 @@
 <div class="container-fluid mt-3">
 	<div class="row">
 		<div class="col-4">
-			<label>Inquadrare il QRcode</label>
-
+			<label div="output">Inquadrare il QRcode</label>
 		</div>
 		<div class="col-8" >
 			<canvas id="canvas">

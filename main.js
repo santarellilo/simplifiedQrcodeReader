@@ -1,6 +1,8 @@
 var video = document.createElement("video");
+var output = document.getElementById("output");
 video.setAttribute('autoplay', true);
-video.setAttribute('playsinline', true)
+video.setAttribute('playsinline', true);
+video.setAttribute('class', "col-8")
 var canvasElement = document.getElementById("canvas");
 var canvas = canvasElement.getContext("2d");
 var button = document.getElementById("scan");
@@ -18,9 +20,18 @@ function stream(){
   			console.log( 'error: ', err );
 		})
 };
-canvasElement.appendChild(video);
-canvasElement.height = video.videoHeight;
-canvasElement.width = video.videoWidth;
-canvas.drawImage(video, 0, 0, canvasElement.width, canvasElement.height);
+document.body.appendChild(video);
+function detect(){
+	canvasElement.height = video.videoHeight;
+	canvasElement.width = video.videoWidth;
+	canvas.drawImage(video, 0, 0, canvasElement.width, canvasElement.height);
+	var imageData = canvas.getImageData = (0, 0, canvasElement.width, canvasElement.height);
+	code = jsQR(imageData.data, imageData.width, imageData.height, {inversionAttempts: "dontInvert",});
+	var output = document.getElementById("output");
+	output.innerHTML = code.data;
 
+};
+
+//onload
 document.onload = stream();
+document.addEventListener("click", detect());
