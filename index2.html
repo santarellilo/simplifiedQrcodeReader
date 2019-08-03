@@ -14,17 +14,16 @@
 <body>
 <div class="container-fluid mt-3">
 	<div class="row">
-		<div class="col-4">
-			<label>Inquadrare il QRcode</label>
-			<span id="output"></span>
+		<div class="col-6">
+			<label id="output">Inquadrare il QRcode</label>
 		</div>
-		<div class="col-8" style="background-color: black;">
-			<canvas id="canvas">
-			</canvas>
+		<div class="col-6" style="background-color: black;">
+			<div class="col text-center"><button type="button" class="btn btn-success" id="scan">Scannerizza</button></div>
 		</div>
 	</div>
 	<div style="margin-top: 20px;">
-		<div class="col text-center"><button type="button" class="btn btn-success" id="scan">Scannerizza</button></div>
+		<canvas id="canvas">
+			</canvas>
 	</div> <!-- end row -->
 </div> <!-- end container -->
 <script type="text/javascript">
@@ -56,10 +55,7 @@ function detect(){
 	canvasElement.width = video.videoWidth;
 	canvas.drawImage(video, 0, 0, canvasElement.width, canvasElement.height);
 	var imageData = canvas.getImageData(0, 0, canvasElement.width, canvasElement.height);
-	window.alert("cerco..");
 	code = jsQR(imageData.data, imageData.width, imageData.height, {inversionAttempts: "dontInvert",});
-	window.alert("eppure..");
-
 };
 
 //onload
