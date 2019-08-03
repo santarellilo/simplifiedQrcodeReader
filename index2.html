@@ -3,7 +3,7 @@
 <head>
 	<title>QRcode Reader</title>
 	<link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
-	<script type="text/javascript" src="./jsQR.js"></script>
+	<script type="text/javascript" src="https://raw.githubusercontent.com/cozmo/jsQR/master/dist/jsQR.js"></script>
 	<style type="text/css">
 		body{
 			margin:0 auto;
@@ -38,7 +38,7 @@ var button = document.getElementById("scan");
 const constraints = {audio:false, video:{facingMode:"environment"}}
 
 //stream function
-function stream(){
+//function stream(){
 	navigator.mediaDevices.getUserMedia(constraints)
 		.then(function(stream) {
   			video.srcObject = stream;
@@ -46,10 +46,10 @@ function stream(){
 		})
 		.catch(function(err) {
   			console.log( 'error: ', err );
-		})
-};
+		});
+//};
 document.body.appendChild(video);
-function detect(){
+//function detect(){
 	canvasElement.height = video.videoHeight;
 	canvasElement.width = video.videoWidth;
 	canvas.drawImage(video, 0, 0, canvasElement.width, canvasElement.height);
@@ -57,11 +57,11 @@ function detect(){
 	code = jsQR(imageData.data, imageData.width, imageData.height, {inversionAttempts: "dontInvert",});
 	output.innerHTML = code.data;
 
-};
+//};
 
 //onload
-document.onload = stream();
-button.addEventListener("click", detect());
+//document.onload = stream();
+//button.addEventListener("click", detect());
 	
 </script>
 </body>
