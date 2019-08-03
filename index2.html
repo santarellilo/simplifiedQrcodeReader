@@ -8,6 +8,10 @@
 		body{
 			margin:0 auto;
 		}
+		.video {
+			width:132;
+			height:132;
+		}
 	</style>
 </head>
 <body>
@@ -30,7 +34,7 @@ var video = document.createElement("video");
 var output = document.getElementById("output");
 video.setAttribute('autoplay', true);
 video.setAttribute('playsinline', true);
-video.setAttribute('class', "col-8")
+video.setAttribute('class', "video")
 var canvasElement = document.getElementById("canvas");
 var canvas = canvasElement.getContext("2d");
 var button = document.getElementById("scan");
