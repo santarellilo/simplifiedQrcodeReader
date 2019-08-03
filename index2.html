@@ -66,11 +66,12 @@ function detect(){
 document.onload = stream();
 button.addEventListener("click", function fun(){
 	detect();
-});
-if (code) {
+	if (code) {
 	output.innerText = code.data;
 	window.alert('fatto!');
-}
+	}
+});
+
 	
 </script>
 </body>
