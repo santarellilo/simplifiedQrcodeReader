@@ -1,0 +1,68 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title>QRcode Reader</title>
+	<link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
+	<script type="text/javascript" src="https://raw.githubusercontent.com/cozmo/jsQR/master/dist/jsQR.js"></script>
+	<style type="text/css">
+		body{
+			margin:0 auto;
+		}
+	</style>
+</head>
+<body>
+<div class="container-fluid mt-3">
+	<div class="row">
+		<div class="col-4">
+			<label div="output">Inquadrare il QRcode</label>
+		</div>
+		<div class="col-8" >
+			<canvas id="canvas">
+			</canvas>
+		</div>
+	</div>
+	<div style="margin-top: 20px;">
+		<div class="col text-center"><button type="button" class="btn btn-success" id="scan">Scannerizza</button></div>
+	</div> <!-- end row -->
+</div> <!-- end container -->
+<script type="text/javascript">
+var video = document.createElement("video");
+var output = document.getElementById("output");
+video.setAttribute('autoplay', true);
+video.setAttribute('playsinline', true);
+video.setAttribute('class', "col-8")
+var canvasElement = document.getElementById("canvas");
+var canvas = canvasElement.getContext("2d");
+var button = document.getElementById("scan");
+
+const constraints = {audio:false, video:{facingMode:"environment"}}
+
+//stream function
+function stream(){
+	navigator.mediaDevices.getUserMedia(constraints)
+		.then(function(stream) {
+  			video.srcObject = stream;
+  			video.play();
+		})
+		.catch(function(err) {
+  			console.log( 'error: ', err );
+		})
+};
+document.body.appendChild(video);
+function detect(){
+	canvasElement.height = video.videoHeight;
+	canvasElement.width = video.videoWidth;
+	canvas.drawImage(video, 0, 0, canvasElement.width, canvasElement.height);
+	var imageData = canvas.getImageData = (0, 0, canvasElement.width, canvasElement.height);
+	code = jsQR(imageData.data, imageData.width, imageData.height, {inversionAttempts: "dontInvert",});
+	output.innerHTML = code.data;
+
+};
+
+//onload
+document.onload = stream();
+button.addEventListener("click", detect());
+	
+</script>
+</body>
+</html>
