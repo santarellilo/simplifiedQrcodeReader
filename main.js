@@ -16,6 +16,7 @@ function stream(){
 		})
 		.catch(function(err) {
   			console.log( 'error: ', err );
+		})
 });
 
 canvasElement.height = video.videoHeight;
