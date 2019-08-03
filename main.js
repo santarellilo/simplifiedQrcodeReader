@@ -1,3 +1,4 @@
+import "https://raw.githubusercontent.com/cozmo/jsQR/master/dist/jsQR.js";
 var video = document.createElement("video");
 var output = document.getElementById("output");
 video.setAttribute('autoplay', true);
@@ -27,11 +28,10 @@ function detect(){
 	canvas.drawImage(video, 0, 0, canvasElement.width, canvasElement.height);
 	var imageData = canvas.getImageData = (0, 0, canvasElement.width, canvasElement.height);
 	code = jsQR(imageData.data, imageData.width, imageData.height, {inversionAttempts: "dontInvert",});
-	var output = document.getElementById("output");
 	output.innerHTML = code.data;
 
 };
 
 //onload
 document.onload = stream();
-document.addEventListener("click", detect());
+button.addEventListener("click", detect());
