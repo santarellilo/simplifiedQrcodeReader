@@ -23,7 +23,7 @@
 </div> <!-- end container -->
 <div class="container-fluid">
 	<div class="row"><div class="col">
-        <canvas id="canvas"></canvas>
+		<div id="troia"><canvas id="canvas"></canvas></div>
 	</div>
 	</div>
 	<div class="row"><div class="col text-center align-middle">
@@ -39,7 +39,8 @@ var video = document.createElement("video");
 var output = document.getElementById("output");
 video.setAttribute('autoplay', true);
 video.setAttribute('playsinline', true);
-video.setAttribute('class', "col-12")
+video.setAttribute('class', "col-12");
+document.getElementById("troia").appendChild(video);
 var canvasElement = document.getElementById("canvas");
 var canvas = canvasElement.getContext("2d");
 var button = document.getElementById("scan");
