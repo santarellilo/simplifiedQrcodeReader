@@ -12,15 +12,27 @@
 	</style>
 </head>
 <body>
-<div class="container-fluid mt-3">
-	<div class="row"><div class="col-6"><label id="output" class="text-center">Inquadrare il QRcode</label></div><!-- end row -->
+<!-- <div class="container-fluid mt-3">
+	<div class="row"><div class="col"><label id="output" class="text-center">Inquadrare il QRcode</label></div>
 	<div class="col-6">
 		<div class="text-center"><button type="button" class="btn btn-success" id="scan">Scannerizza</button></div>
-	</div></div><!-- end row -->
+	</div></div>
 	<div>
 		<canvas id="canvas" hidden></canvas>
 	</div> 
 </div> <!-- end container -->
+<div class="container-fluid mt-3">
+	<div class="row"><div class="col">
+        <canvas id="canvas" hidden></canvas>
+		
+	</div>
+    </div><!-- end row -->
+	<div class="row">
+        <div class="col">
+		<button type="button" class="btn btn-success btn block" style="position: fixed;" id="scan">Scannerizza</button>
+        </div>
+	</div> 
+</div>
 <script type="text/javascript">
 document.addEventListener('touchmove', function (event) {
   if (event.scale !== 1) { event.preventDefault(); }
