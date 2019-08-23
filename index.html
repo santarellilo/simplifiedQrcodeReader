@@ -40,7 +40,6 @@ var output = document.getElementById("output");
 video.setAttribute('autoplay', true);
 video.setAttribute('playsinline', true);
 video.setAttribute('class', "col-12");
-document.getElementById("troia").appendChild(video);
 var canvasElement = document.getElementById("canvas");
 var canvas = canvasElement.getContext("2d");
 var button = document.getElementById("scan");
@@ -58,7 +57,7 @@ function stream(){
   			console.log( 'error: ', err );
 		})
 };
-document.body.appendChild(video);
+document.getElementById("troia").appendChild(video);
 function detect(){
 	canvasElement.height = video.videoHeight;
 	canvasElement.width = video.videoWidth;
