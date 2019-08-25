@@ -23,6 +23,9 @@
 	</div> 
 </div> <!-- end container -->
 <div class="container-fluid">
+	<div class="alert alert-success" id="avviso" role="alert" hidden>
+  		
+	</div>
 	<div class="row"><div class="col">
 		<div id="troia">
 		<canvas id="canvas" hidden></canvas>
@@ -71,7 +74,20 @@ function detect(){
 	canvas.drawImage(video, 0, 0, canvasElement.width, canvasElement.height);
 	var imageData = canvas.getImageData(0, 0, canvasElement.width, canvasElement.height);
 	code = jsQR(imageData.data, imageData.width, imageData.height, {inversionAttempts: "dontInvert",});
+	SegnaAJAX(code);
 };
+
+function SegnaAJAX(code){
+	var xmlhttp = new XMLHttpRequest();
+        xmlhttp.onreadystatechange = function() {
+            if (this.readyState == 4 && this.status == 200) {
+                document.getElementById("avviso").innerHTML = this.responseText;
+                document.getElementById("avviso").setAttribute('hidden', false)
+            }
+        };
+        xmlhttp.open("GET", code.data, true);
+        xmlhttp.send();
+}
 
 //onload
 document.onload = stream();
