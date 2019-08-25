@@ -80,7 +80,7 @@ function detect(){
 function SegnaAJAX(code){
 	var xmlhttp = new XMLHttpRequest();
         xmlhttp.onreadystatechange = function() {
-            if (this.readyState == 4 && this.status == 200) {
+            if (this.status == 200) {
                 document.getElementById("avviso").innerHTML = this.responseText;
                 //document.getElementById("avviso").setAttribute('hidden', false);
             }
