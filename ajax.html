@@ -23,7 +23,7 @@
 	</div> 
 </div> <!-- end container -->
 <div class="container-fluid">
-	<div class="alert alert-success" id="avviso" role="alert" hidden>
+	<div class="alert alert-success" id="avviso" role="alert" >
   		
 	</div>
 	<div class="row"><div class="col">
@@ -82,7 +82,7 @@ function SegnaAJAX(code){
         xmlhttp.onreadystatechange = function() {
             if (this.readyState == 4 && this.status == 200) {
                 document.getElementById("avviso").innerHTML = this.responseText;
-                document.getElementById("avviso").setAttribute('hidden', false)
+                //document.getElementById("avviso").setAttribute('hidden', false);
             }
         };
         xmlhttp.open("GET", code.data, true);
@@ -94,7 +94,7 @@ document.onload = stream();
 button.addEventListener("click", function fun(){
 	detect();
 	if (code) {
-	window.open(code.data);
+	//window.open(code.data);
 	//output.innerText = code.data;
 	//window.alert('fatto!');
 	}
