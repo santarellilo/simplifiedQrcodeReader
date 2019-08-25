@@ -1,0 +1,90 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title>QRcode Reader</title>
+	<link rel="apple-touch-icon" sizes="128x128" href="icon.png">
+	<link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
+	<script type="text/javascript" src="./jsQR.js"></script>
+	<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=0">
+	<style type="text/css">
+		body{
+			margin:0 auto;
+		}
+	</style>
+</head>
+<body>
+<!-- <div class="container-fluid mt-3">
+	<div class="row"><div class="col"><label id="output" class="text-center">Inquadrare il QRcode</label></div>
+	<div class="col-6">
+		<div class="text-center"><button type="button" class="btn btn-success" id="scan">Scannerizza</button></div>
+	</div></div>
+	<div>
+		<canvas id="canvas" hidden></canvas>
+	</div> 
+</div> <!-- end container -->
+<div class="container-fluid">
+	<div class="row"><div class="col">
+		<div id="troia">
+		<canvas id="canvas" hidden></canvas>
+		</div>
+	</div>
+	</div>
+	<div class="row"><div class="col text-center">
+	<button type="button" class="btn btn-success" id="scan">Scannerizza</button>	
+	</div>
+	</div><br>
+	<div class="row"><div class="col text-center">
+	<a class="btn btn-info" href="http://tbaq.altervista.org" role="button">Gestisci</a>	
+	</div>
+	</div>
+	</div>
+<script type="text/javascript">
+document.addEventListener('touchmove', function (event) {
+  if (event.scale !== 1) { event.preventDefault(); }
+}, false);
+var video = document.createElement("video");
+var output = document.getElementById("output");
+video.setAttribute('autoplay', true);
+video.setAttribute('playsinline', true);
+video.setAttribute('class', "col-12");
+var canvasElement = document.getElementById("canvas");
+var canvas = canvasElement.getContext("2d");
+var button = document.getElementById("scan");
+
+const constraints = {audio:false, video:{facingMode:"environment"}}
+
+//stream function
+function stream(){
+	navigator.mediaDevices.getUserMedia(constraints)
+		.then(function(stream) {
+  			video.srcObject = stream;
+  			video.play();
+		})
+		.catch(function(err) {
+  			console.log( 'error: ', err );
+		})
+};
+document.getElementById("troia").appendChild(video);
+function detect(){
+	canvasElement.height = video.videoHeight;
+	canvasElement.width = video.videoWidth;
+	canvas.drawImage(video, 0, 0, canvasElement.width, canvasElement.height);
+	var imageData = canvas.getImageData(0, 0, canvasElement.width, canvasElement.height);
+	code = jsQR(imageData.data, imageData.width, imageData.height, {inversionAttempts: "dontInvert",});
+};
+
+//onload
+document.onload = stream();
+button.addEventListener("click", function fun(){
+	detect();
+	if (code) {
+	window.open(code.data);
+	//output.innerText = code.data;
+	//window.alert('fatto!');
+	}
+});
+
+	
+</script>
+</body>
+</html>
