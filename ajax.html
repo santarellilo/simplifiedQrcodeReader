@@ -33,7 +33,7 @@
 	</div>
 	</div>
 	<div class="row"><div class="col text-center">
-	<button type="button" class="btn btn-success" id="scan" onclick='bottone()'>Scannerizza</button>	
+	<button type="button" class="btn btn-success" id="scan" onclick='detect()'>Scannerizza</button>	
 	</div>
 	</div><br>
 	<div class="row"><div class="col text-center">
@@ -88,7 +88,7 @@ function SegnaAJAX(code){
 	var xmlhttp = new XMLHttpRequest();
         xmlhttp.onreadystatechange = function() {
             if (this.readyState == 4 && this.status == 200) {
-		window.alert('this.responseText');    
+		window.alert(this.responseText);    
                 //document.getElementById("avviso").innerHTML = this.responseText;
                 //document.getElementById("avviso").setAttribute('hidden', false);
             }
