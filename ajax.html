@@ -33,7 +33,7 @@
 	</div>
 	</div>
 	<div class="row"><div class="col text-center">
-	<button type="button" class="btn btn-success" id="scan" onclick='detect();'>Scannerizza</button>	
+	<button type="button" class="btn btn-success" id="scan" onclick='SegnaAJAX();'>Scannerizza</button>	
 	</div>
 	</div><br>
 	<div class="row"><div class="col text-center">
@@ -70,33 +70,22 @@ function stream(){
 document.getElementById("troia").appendChild(video);
 	
 var avviso = document.getElementById('avviso');
-	
+var xmlhttp = new XMLHttpRequest();
 function detect(){
 	canvasElement.height = video.videoHeight;
 	canvasElement.width = video.videoWidth;
 	canvas.drawImage(video, 0, 0, canvasElement.width, canvasElement.height);
 	var imageData = canvas.getImageData(0, 0, canvasElement.width, canvasElement.height);
 	code = jsQR(imageData.data, imageData.width, imageData.height, {inversionAttempts: "dontInvert",});
-	var xmlhttp = new XMLHttpRequest();
-	var link = code.data;
-        xmlhttp.open("GET", link, true);
-        if(code.data){
-		xmlhttp.send();
-		avviso.innerHTML = "Richiesta inviata";
-	}	
-	xmlhttp.onreadystatechange = function() {
-            if (this.readyState == 4 && this.status == 200) {
-		avviso.innerHTML=this.responseText;    
-                //document.getElementById("avviso").innerHTML = this.responseText;
-                //document.getElementById("avviso").setAttribute('hidden', false);
-            }
+	window.alert(code.data);
+	return code;
 };
 
-function SegnaAJAX(code){
-	var xmlhttp = new XMLHttpRequest();
+function SegnaAJAX(){
+	detect();
 	var link = code.data;
         xmlhttp.open("GET", link, true);
-        if(code.data){
+        if(link){
 		xmlhttp.send();
 		avviso.innerHTML = "Richiesta inviata";
 	}	
