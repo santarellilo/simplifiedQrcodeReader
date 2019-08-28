@@ -33,7 +33,7 @@
 	</div>
 	</div>
 	<div class="row"><div class="col text-center">
-	<button type="button" class="btn btn-success" id="scan" onclick='detect()'>Scannerizza</button>	
+	<button type="button" class="btn btn-success" id="scan" onclick='bottone()'>Scannerizza</button>	
 	</div>
 	</div><br>
 	<div class="row"><div class="col text-center">
@@ -68,6 +68,13 @@ function stream(){
 		})
 };
 document.getElementById("troia").appendChild(video);
+	
+var avviso = document.getElementById('avviso');
+
+function bottone(){
+	avviso.innerHTML = 'Bottone cliccato!';
+}
+	
 function detect(){
 	canvasElement.height = video.videoHeight;
 	canvasElement.width = video.videoWidth;
