@@ -86,6 +86,7 @@ function SegnaAJAX(code){
         xmlhttp.open("GET", link, true);
         if(code.data){
 		xmlhttp.send();
+		avviso.innerHTML = "Richiesta inviata";
 	}	
 	xmlhttp.onreadystatechange = function() {
             if (this.readyState == 4 && this.status == 200) {
