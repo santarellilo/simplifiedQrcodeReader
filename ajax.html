@@ -82,16 +82,16 @@ function detect(){
 
 function SegnaAJAX(code){
 	var xmlhttp = new XMLHttpRequest();
-        xmlhttp.onreadystatechange = function() {
+	var link = code.data;
+        xmlhttp.open("GET", link, true);
+        xmlhttp.send();
+	xmlhttp.onreadystatechange = function() {
             if (this.readyState == 4 && this.status == 200) {
 		avviso.innerHTML=this.responseText;    
                 //document.getElementById("avviso").innerHTML = this.responseText;
                 //document.getElementById("avviso").setAttribute('hidden', false);
             }
         };
-	var link = code.data;
-        xmlhttp.open("GET", link, true);
-        xmlhttp.send();
 }
 
 //onload
