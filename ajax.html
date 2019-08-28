@@ -80,12 +80,13 @@ function detect(){
 function SegnaAJAX(code){
 	var xmlhttp = new XMLHttpRequest();
         xmlhttp.onreadystatechange = function() {
-            if (this.status == 200) {
+            if (this.readyState == 4 && this.status == 200) {
                 document.getElementById("avviso").innerHTML = this.responseText;
                 //document.getElementById("avviso").setAttribute('hidden', false);
             }
         };
-        xmlhttp.open("GET", code.data+'idAula=2', true);
+	var link = code.data+'&idAula=2';
+        xmlhttp.open("GET", link, true);
         xmlhttp.send();
 }
 
